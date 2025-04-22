@@ -4,8 +4,10 @@
 # GitHub: github.com/haithamaouati
 
 # Text Format                                           normal="\e[0m"
+normal="\e[0m"
 bold="\e[1m"
 faint="\e[2m"
+italics="\e[3m"
 underlined="\e[4m"
 
 # Check dependencies
