@@ -9,7 +9,7 @@ Trackdown an IP address geolocation — fast, accurate, and reliable.
    |_|   |_|     \__,_|  \___| |_|\_\  \__,_|  \___/    \_/\_/   |_| |_|
 ```
 
-## Usage
+## Install
 
 To use the Trackdown script, follow these steps:
 
@@ -35,24 +35,23 @@ To use the Trackdown script, follow these steps:
     ```
     ./trackdown.sh
     ```
+## Usage
 
-6. Trackdown an IP address geolocation:
+Usage: `./trackdown.sh -i <IP_ADDRESS>`
 
-   ```
-   ./trackdown.sh -i <IP_ADDRESS>
-   ```
-   ###### Help
-   ```
-   ./trackdown.sh -h
-   ```
+##### Options:
+
+`-i`, `--ip`       IP address to geolocate
+
+`-h`, `--help`     Show this help message
 
 ## Dependencies
 
 The script requires the following dependencies:
 
-- [figlet](): Program for making large letters out of ordinary text
-- [curl](https://curl.se/): Command line tool for transferring data with URL syntax
-- [jq](https://stedolan.github.io/jq/): Command-line JSON processor
+- [figlet](): `pkg install figlet -y`
+- [curl](https://curl.se/): `pkg install curl - y`
+- [jq](https://stedolan.github.io/jq/): `pkg install jq -y`
 
 Make sure to install these dependencies before running the script.
 
