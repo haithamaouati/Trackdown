@@ -3,7 +3,7 @@
 # Author: Haitham Aouati
 # GitHub: github.com/haithamaouati
 
-# Text Format                                           normal="\e[0m"
+# Text Format
 normal="\e[0m"
 bold="\e[1m"
 faint="\e[2m"
@@ -19,7 +19,7 @@ fi
 print_banner() {
     clear
     figlet -f standard "Trackdown"
-    echo -e "Trackdown an IP address — fast, accurate, and reliable.\n"
+    echo -e "Track down an IP address geolocation\n"
     echo -e " Author: Haitham Aouati"
     echo -e " GitHub: ${underlined}github.com/haithamaouati${normal}\n"
 }
@@ -53,7 +53,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [ -z "$IP" ]; then
-  echo "[!] Missing IP address."
+  echo -e "[!] Missing IP address.\n"
   show_help
 fi
 
@@ -79,7 +79,8 @@ if [ "$status" == "success" ]; then
   echo "Timezone:     $(echo "$response" | jq -r '.timezone')"
   echo "ISP:          $(echo "$response" | jq -r '.isp')"
   echo "Organization: $(echo "$response" | jq -r '.org')"
-  echo -e "AS:           $(echo "$response" | jq -r '.as')\n"
+  echo "AS:           $(echo "$response" | jq -r '.as')"
+  echo ""
 else
   echo "[!] Failed to retrieve data for IP: $IP"
   echo "Message: $(echo "$response" | jq -r '.message')"
