@@ -7,25 +7,31 @@
 normal="\e[0m"
 bold="\e[1m"
 faint="\e[2m"
-italics="\e[3m"
 underlined="\e[4m"
+error_color="\e[1;31m"
 
-# Check dependencies
-if ! command -v figlet &>/dev/null || ! command -v curl &>/dev/null || ! command -v jq &>/dev/null; then
-    echo -e "Error: figlet, curl and jq are required but not installed. Please install them and try again."
-    exit 1
-fi
+# Dependencies check
+dependencies=(figlet curl jq)
+for cmd in "${dependencies[@]}"; do
+    if ! command -v "$cmd" &>/dev/null; then
+        echo -e "${error_color}Error:${normal} '$cmd' is required but not installed. Please install it and try again." >&2
+        exit 1
+    fi
+done
+
+# Clear the screen
+clear
 
 print_banner() {
-    clear
     figlet -f standard "Trackdown"
     echo -e "Track down an IP address geolocation\n"
     echo -e " Author: Haitham Aouati"
     echo -e " GitHub: ${underlined}github.com/haithamaouati${normal}\n"
 }
 
+print_banner
+
 show_help() {
-  print_banner
   echo "Usage: $0 -i <IP_ADDRESS>"
   echo
   echo "Options:"
@@ -56,8 +62,6 @@ if [ -z "$IP" ]; then
   echo -e "[!] Missing IP address.\n"
   show_help
 fi
-
-print_banner
 
 API_URL="http://ip-api.com/json/$IP"
 
