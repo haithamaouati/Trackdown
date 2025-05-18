@@ -62,4 +62,4 @@ Made with :coffee: by **Haitham Aouati**
 
 ## License
 
-Trackdown is licensed under [Unlicense license](LICENSE).
+Trackdown is licensed under [WTFPL license](LICENSE).
